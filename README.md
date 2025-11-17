@@ -62,7 +62,7 @@ Running `vllama` inside a Docker container is the recommended method as it provi
     ```bash
     ./helpers/start_dockerized_vllama.sh
     ```
-    `vllama` will then be available at `http://localhost:11435/v1` and will be exposed to all devices in the network by default. 
+    `vllama` will then be available at `http://localhost:11435/v1` and will be exposed to all devices in the network by default. You can test if the server is alive by running `curl http://localhost:11435/v1/models`.
 
 ## Development
 
