@@ -241,6 +241,7 @@ vllama is the engine that makes this practical and efficient.
 
 ## Updates
 
+*   **Nov 20, 2025:** Simplified container installation method from Docker Hub, allowing direct execution of the helper script.
 *   **Nov 17, 2025:** Support for the Mistral model family is now officially proven to work, including models like Magistral and Devstral.
 *   **Nov 15, 2025:** Added Docker support for a consistent, portable environment and a new helper script to make running it easier.
 *   **Nov 4, 2025:** Support for the `deepseek-r1` architecture has been added! 🧠 This allows models like `huihui_ai/deepseek-r1-abliterated:14b` to be used with `vllama`.
