@@ -58,4 +58,13 @@ docker run -d \
   --name vllama-service \
   --restart unless-stopped \
   -v "$OLLAMA_MODELS_PATH:/var/lib/ollama/models:ro" \
-  vllama
+  tomhimanen/vllama:latest
+
+# For development purposes you can use this docker run command instead
+# docker run -d \
+#   --gpus all \
+#   --network host \
+#   --name vllama-service \
+#   --restart unless-stopped \
+#   -v "$OLLAMA_MODELS_PATH:/var/lib/ollama/models:ro" \
+#   vllama-dev

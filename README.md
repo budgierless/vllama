@@ -40,21 +40,18 @@ Running `vllama` inside a Docker container is the recommended method as it provi
 1.  **Docker:** A working Docker installation.
 2.  **NVIDIA Container Toolkit:** Required to run GPU-accelerated Docker containers. Please see the [official installation guide](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) for your distribution.
 
-### Build and Run
+### Install and Run
 
-1.  **Clone the repository and a compatible model:**
-    First, clone this repository to your local machine and navigate into the directory.
-    ```bash
-    ollama pull tom_himanen/deepseek-r1-roo-cline-tools:14b # proven to be compatible
-    ollama pull huihui_ai/devstral-abliterated:latest # proven to be compatible
-    git clone https://github.com/erkkimon/vllama.git
-    cd vllama
+1.  **Pull the latest docker image**
+    ```
+    docker pull tomhimanen/vllama:latest
     ```
 
-2.  **Build the Docker image:**
-    From within the repository directory, run the build command:
-    ```bash
-    docker build -t vllama .
+2. **Pull good-known images**
+    To make sure vllama works fine on your system, you probably want to pull a few ollama models that are known to be compatible with vllama and after that try other models.
+    ```
+    ollama pull tom_himanen/deepseek-r1-roo-cline-tools:14b # proven to be compatible
+    ollama pull huihui_ai/devstral-abliterated:latest # proven to be compatible
     ```
 
 3.  **Run the container using the helper script:**
@@ -62,6 +59,7 @@ Running `vllama` inside a Docker container is the recommended method as it provi
     ```bash
     ./helpers/start_dockerized_vllama.sh
     ```
+
     `vllama` will then be available at `http://localhost:11435/v1` and will be exposed to all devices in the network by default. You can test if the server is alive by running `curl http://localhost:11435/v1/models`.
 
 ## Development
@@ -87,6 +85,20 @@ If you want to run `vllama` directly from the source for development, follow the
     python vllama.py
     ```
     The server will start on `http://localhost:11435`.
+
+### Building Docker image for development
+
+1.  **Build the Docker image:**
+    From within the repository directory, run the build command:
+    ```bash
+    docker build -t vllama-dev .
+    ```
+
+2.  **Run the container using the helper script:**
+    Run the helper script as in the quick start instructions, but comment out the default `docker run` command in the end of the file and uncomment the command below it. 
+    ```bash
+    ./helpers/start_dockerized_vllama.sh
+    ```
 
 ## Maintenance
 
