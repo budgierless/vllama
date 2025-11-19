@@ -54,13 +54,14 @@ Running `vllama` inside a Docker container is the recommended method as it provi
     ollama pull huihui_ai/devstral-abliterated:latest # proven to be compatible
     ```
 
-3.  **Run the container using the helper script:**
-    The helper script will automatically detect your Ollama models path and launch the container as a background service.
+3.  **Run the container with a single command:**
+    You can download and execute the helper script directly with a single command. This script will automatically detect your Ollama models path and launch the container as a background service. NB! Always review the script's content before executing it.
+
     ```bash
-    ./helpers/start_dockerized_vllama.sh
+    curl -fsSL https://raw.githubusercontent.com/erkkimon/vllama/refs/heads/main/helpers/start_dockerized_vllama.sh | bash
     ```
 
-    `vllama` will then be available at `http://localhost:11435/v1` and will be exposed to all devices in the network by default. You can test if the server is alive by running `curl http://localhost:11435/v1/models`.
+    `vllama` will then be available at `http://localhost:11435/v1` and will be exposed to all devices in the network by default. You can test if the server is alive by running `curl http://localhost:11435/v1/models`. You can also see the logs with `docker logs -f vllama-service` command.
 
 ## Development
 
